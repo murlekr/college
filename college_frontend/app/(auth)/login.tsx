@@ -1,10 +1,12 @@
 import { Alert, View, Text, TextInput, StyleSheet, Pressable, ActivityIndicator } from 'react-native'
 import React, { useState } from 'react'
 import {router, Router} from 'expo-router'
-import { LoginData, loginUser, LoginUser } from '@/src/services/authApi'
-import { LoginFormData } from '@/src/types/auth'
+import { LoginFormData, LoginData, LoginUser } from '@/src/types/auth'
 import LoginForm from '@/src/components/auth/LoginForm'
 import useForm from '@/src/hooks/useForm'
+import {loginUser} from '@/src/services/authApi'
+
+import { useAuth } from '@/src/context/AuthContext'
 
 const LoginScreen = () => {
 
@@ -13,6 +15,8 @@ const LoginScreen = () => {
     password: ""
   });
   const [loading, setLoading] = useState(false);
+
+  const {login} = useAuth()
 
   const handleLogin = async()=>{
     const {username, password} = formData;
@@ -29,7 +33,15 @@ const LoginScreen = () => {
       const response = await loginUser(data)
       console.log ("login Successful", response)
       Alert.alert("Success", `Welcome ${response.user.username}`)
+      
       resetForm()
+
+      login()
+
+      Alert.alert("Success", 
+        `Welcome ${response.user.username}`
+      );
+
       router.replace({
       pathname:"/welcome",
       params:{
@@ -51,15 +63,21 @@ const LoginScreen = () => {
       setLoading(false)
     }
 }
+
+
+    const handleSignup =()=>{
+      router.replace("/signup")
+    }
+    
+
 return (
   <View style={styles.container}>
     <Text style={styles.title}>Login</Text>
-    <LoginForm formData={formData} onChange={handleChange} loading={loading} onSubmit={handleLogin} />
+    <LoginForm formData={formData} onChange={handleChange} loading={loading} onSubmit={handleLogin} onSignup={handleSignup} />
     
   </View>
 )
 }
-
 
 export default LoginScreen
 

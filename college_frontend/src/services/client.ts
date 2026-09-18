@@ -33,6 +33,7 @@ apiClient.interceptors.request.use(
     return config
   }
 )
+
 apiClient.interceptors.response.use(
   (response) =>{
     return response
@@ -71,6 +72,28 @@ apiClient.interceptors.response.use(
       }
       return Promise.reject(error);
     }   
+);
+
+apiClient.interceptors.request.use(
+  async (config) => {
+    console.log("API REQUEST:", {
+      method: config.method,
+      url: config.url,
+      baseURL: config.baseURL,
+    });
+
+    const accessToken = await getAccessToken();
+
+    if (accessToken) {
+      config.headers.Authorization =
+        `Bearer ${accessToken}`;
+    }
+
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
 );
 
 // apiClient.interceptors.request.use(async (config:InternalAxiosRequestConfig)=>{

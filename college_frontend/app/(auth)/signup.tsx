@@ -1,10 +1,10 @@
 import { useState } from "react";
 import {   ActivityIndicator,  Alert,  Pressable,  StyleSheet,  Text,  TextInput,  View,} from "react-native";
 import {router} from "expo-router"
-import {   registerUser,   RegisterData, } from "@/src/services/authApi";
+import {   registerUser, } from "@/src/services/authApi";
 import SignUpform from "@/src/components/auth/SignUpForm"; 
 import useForm from "@/src/hooks/useForm";
-import { SignupFormData } from "@/src/types/auth";
+import { SignupFormData, RegisterData } from "@/src/types/auth";
 
 export default function SignupScreen() {
  
@@ -91,11 +91,16 @@ export default function SignupScreen() {
     }
   };
 
+  const handleLogin=()=>{
+    router.replace("/login")
+  }
+
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Signup</Text>
 
-      <SignUpform formData={formData} onChange={handleChange} loading={loading} onSubmit={handleSignup}/>
+      <SignUpform formData={formData} onChange={handleChange} loading={loading} onSubmit={handleSignup} onLogin={handleLogin}/>
 
     </View>
   );
