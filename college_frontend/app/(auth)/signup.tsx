@@ -1,10 +1,10 @@
 import { useState } from "react";
 import {   ActivityIndicator,  Alert,  Pressable,  StyleSheet,  Text,  TextInput,  View,} from "react-native";
 import {router} from "expo-router"
-import {   registerUser, } from "@/src/services/authApi";
-import SignUpform from "@/src/components/auth/SignUpForm"; 
+import {   registerUser, } from "@/src/features/auth/authApi";
+import SignUpform from "@/src/features/auth/components/SignUpForm"; 
 import useForm from "@/src/hooks/useForm";
-import { SignupFormData, RegisterData } from "@/src/types/auth";
+import { SignupFormData, RegisterData } from "@/src/features/auth/auth";
 
 export default function SignupScreen() {
  
@@ -15,9 +15,6 @@ export default function SignupScreen() {
     password2:""
   })
   const [loading, setLoading] = useState(false);
-
-
-  
 
   const handleSignup = async () => {
 

@@ -11,7 +11,6 @@ export interface RegisterResponse{
     email:string,
 }
 
-
 export interface LoginData{
     username:string;
     password:string;

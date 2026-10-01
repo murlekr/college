@@ -3,7 +3,7 @@ import React from 'react'
 
 interface AppButtonProps extends PressableProps{
     title:string;
-    loading:boolean;
+    loading?:boolean;
     variant?: "primary"|"danger"|"secondary"
 
 } 

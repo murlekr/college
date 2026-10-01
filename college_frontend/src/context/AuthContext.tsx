@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import {createContext,useContext,useEffect,useState,ReactNode} from 'react'
-import { loginUser } from '../services/authApi'
+import { loginUser } from '../features/auth/authApi'
 
 import { saveToken, getAccessToken, getRefreshToken, deleteTokens } from '../services/tokenServices'
 

@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet, Button, Pressable } from 'react-native'
 import React from 'react'
-import { useLocalSearchParams } from 'expo-router'
+import { useLocalSearchParams, router } from 'expo-router'
 
 import { useAuth } from '@/src/context/AuthContext'
 
@@ -21,6 +21,16 @@ const Welcome = () => {
       <Text>you have succesfully logined in</Text>
 
       <Button title="Logout" onPress={handleLogout}/>
+
+      <Pressable onPress={()=>{
+        router.push({
+          pathname:"/student"
+        })
+      }}>
+        <Text> View Students</Text>
+      </Pressable>
+
+
     </View>
   )
 }

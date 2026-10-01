@@ -1,6 +1,6 @@
-import { apiClient } from "./client";
-import { saveToken } from "./tokenServices";
-import { RegisterData, RegisterResponse,LoginData, LoginResponse, LoginUser } from "../types/auth";
+import { apiClient } from "../../services/client";
+import { saveToken } from "../../services/tokenServices";
+import { RegisterData, RegisterResponse,LoginData, LoginResponse, LoginUser } from "./auth";
 
 
 export const registerUser = async(data:RegisterData):Promise<RegisterResponse> =>{

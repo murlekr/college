@@ -1,10 +1,10 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
 
-import AppButton from '../common/AppButton';
-import AppInput from '../common/AppInput';
+import AppButton from '../../../components/common/AppButton';
+import AppInput from '../../../components/common/AppInput';
 
-import { LoginFormData } from '@/src/types/auth';
+import { LoginFormData } from '@/src/features/auth/auth';
 
 interface LoginFormProps {
     formData:LoginFormData;

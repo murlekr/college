@@ -1,10 +1,10 @@
 import { Alert, View, Text, TextInput, StyleSheet, Pressable, ActivityIndicator } from 'react-native'
 import React, { useState } from 'react'
 import {router, Router} from 'expo-router'
-import { LoginFormData, LoginData, LoginUser } from '@/src/types/auth'
-import LoginForm from '@/src/components/auth/LoginForm'
+import { LoginFormData, LoginData, LoginUser } from '@/src/features/auth/auth'
+import LoginForm from '@/src/features/auth/components/LoginForm'
 import useForm from '@/src/hooks/useForm'
-import {loginUser} from '@/src/services/authApi'
+import {loginUser} from '@/src/features/auth/authApi'
 
 import { useAuth } from '@/src/context/AuthContext'
 
