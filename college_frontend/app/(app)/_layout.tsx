@@ -18,7 +18,11 @@ if(!isLoggedIn){
 }
 
 return (
-    <Stack screenOptions={{headerShown:false}}/>
+    <Stack>
+        <Stack.Screen name='(tabs)' options={{headerShown:false}}/>
+        <Stack.Screen name='Welcome Options' options={{title:"welcome"}}/>
+    </Stack>
+    
 )
 }
 
