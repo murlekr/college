@@ -5,8 +5,6 @@ import { Router,router } from 'expo-router'
 
 import AppButton from '@/src/components/common/AppButton'
 
-
-
 const ProfileScreen = () => {
 
     const {logout}=useAuth()
